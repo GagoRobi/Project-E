@@ -1,10 +1,29 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+import HomePage from './pages/HomePage.jsx'
 import './index.css'
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import NavBar from './components/NavBar.jsx'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const router = createBrowserRouter([
+
+    {
+        path: "/",
+        element: <NavBar/>,
+        children: [
+            {
+                path: "/",
+                element: <HomePage/>
+            }
+        ]
+
+    }
+
+])
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
   <React.StrictMode>
-    <App />
+      <RouterProvider router={router}/>
   </React.StrictMode>,
 )
