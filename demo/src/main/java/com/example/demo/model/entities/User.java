@@ -1,2 +1,4 @@
-package com.example.demo.model.entities;public class User {
+package com.example.demo.model.entities;
+
+public class User {
 }
