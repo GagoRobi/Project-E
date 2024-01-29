@@ -5,6 +5,7 @@ import './index.css'
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import NavBar from './components/NavBar.jsx'
 import EventPage from "./pages/EventPage.jsx";
+import EventCreator from "./pages/EventCreator.jsx";
 
 const router = createBrowserRouter([
 
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
             {
                 path: "/events",
                 element: <EventPage/>
+            },
+            {
+                path: "/new-event",
+                element: <EventCreator/>
             }
         ]
     }

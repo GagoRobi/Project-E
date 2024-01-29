@@ -7,9 +7,9 @@ function NavBar() {
     return (
         <div>
 
-            <Navbar style={{zIndex : 15}} expand="lg" className="nav opacity-100">
+            <Navbar style={{zIndex : 15}} expand="md" className="nav opacity-75">
                 <Container>
-                    <Navbar.Brand href="#home">Brand-Name</Navbar.Brand>
+                    <Navbar.Brand href="/">Brand-Name</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">

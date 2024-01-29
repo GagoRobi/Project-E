@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import {map} from "react-bootstrap/ElementChildren";
 import EventCard from "../components/EventCard.jsx";
 import Loading from "../components/Loading.jsx";
+import {Button} from "react-bootstrap";
 const fetchEvents = () => {
 
     return fetch("http://localhost:8080/api/v1/events")
@@ -25,7 +26,7 @@ function EventPage() {
 
 
     return(<div>
-        <h1>Events</h1>
+        <h1>Events</h1> <Button href="/new-event">+</Button>
         {/*<EventCard event={{*/}
         {/*    "title": "Test_Post:man",*/}
         {/*    "type": "EVENT_TYPE_1",*/}
@@ -37,7 +38,7 @@ function EventPage() {
 
         {events ?
             events.map((event) => (
-                <EventCard event={event}/>
+                <EventCard key={event.id} event={event}/>
             ))
             : <Loading/>}
     </div>)

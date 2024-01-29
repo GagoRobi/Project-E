@@ -3,20 +3,21 @@ import {useState} from "react";
 
 export default function EventCard({event}) {
 
+    const {id,title,type,description,date,headcount} = event;
+
     return (
         <div className="mx-5 m-1">
             <Card className="p-2">
                 <CardHeader>
-                    <CardTitle>{event.title}</CardTitle>
-                    <CardSubtitle>{event.type}</CardSubtitle>
+                    <CardTitle>{title}</CardTitle>
+                    <CardSubtitle>{type}</CardSubtitle>
                 </CardHeader>
                 <CardBody>
-                    <CardText>{event.description}</CardText>
+                    <CardText>{description}</CardText>
                 </CardBody>
                 <CardFooter>
-                    <CardText>{event.date}</CardText>
-                    <CardText>max: {event.headcount} person</CardText>
-
+                    <CardText>{date}</CardText>
+                    <CardText>max: {headcount} person</CardText>
                 </CardFooter>
             </Card>
         </div>
