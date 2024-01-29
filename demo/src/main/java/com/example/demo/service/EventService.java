@@ -6,6 +6,7 @@ import com.example.demo.repository.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -18,8 +19,11 @@ public class EventService {
         this.eventRepository = eventRepository;
     }
 
-    public List<Event> getAllEvents(){
-        return eventRepository.findAll();
+    public List<EventDto> getAllEvents(){
+        List<Event> events = eventRepository.findAll();
+        List<EventDto> eventDtos = events.stream().map(EventDto::new).toList();
+        System.out.println(eventDtos);
+        return eventDtos;
     }
 
     public Event findEventById(long id){
