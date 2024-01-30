@@ -9,15 +9,30 @@ export default function EventCreator() {
     const [date, setDate] = useState();
     const [headcount, setHeadcount] = useState(0);
     const [typeList, setTypeList] = useState([]);
+    const [newEvent, setNewEvent] = useState()
 
     useEffect(() => {
         fetch("api/v1/event-types")
             .then((res) => res.json()).then((data) => {
             setTypeList(data);
-
         })
     }, []);
-
+    function saveEvent(){
+        fetch("api/v1/events/create" , {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                title,
+                type,
+                description,
+                date,
+                headcount
+            })
+        })
+        console.log(newEvent)
+    }
 
 
     return (
@@ -27,7 +42,7 @@ export default function EventCreator() {
                 <Form>
                     <Form.Group className="mb-3" controlId="formTitle">
                         <Form.Label>Title</Form.Label>
-                        <Form.Control as="input" placeholder="Title"/>
+                        <Form.Control as="input" placeholder="Title" onChange={(e)=>{setTitle(e.target.value)}}/>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formDescription">
@@ -37,20 +52,27 @@ export default function EventCreator() {
                         }}/>
                     </Form.Group>
                     <Form.Label>Type:</Form.Label>
-                    <Form.Select aria-label="Default select example">
+                    <Form.Select aria-label="Default select example" onChange={(e)=>{
+                        console.log(e.target.selectedOptions[0].innerText)
+                        console.log(e.target.value)
+
+                        setType({"id" : e.target.value, "name" : e.target.selectedOptions[0].innerText})}}>
                         <option selected={true} disabled={true}>Open to select type</option>
-                        {typeList && typeList.map((t) => (<option value="1">{t.name}</option>))}
+                        {typeList && typeList.map((t) => (<option value={t.id}>{t.name}</option>))}
                     </Form.Select>
-                    <Form.Group className="mb-3" controlId="formDescription">
+                    <Form.Group className="mb-3" controlId="formDate">
                         <Form.Label>Date:</Form.Label>
                         <Form.Control onChange={(e)=>setDate(e.target.value)} as="input"  type={"date"} />
                     </Form.Group>
-                    <Form.Group className="mb-3" controlId="formDescription">
+                    <Form.Group className="mb-3" controlId="formCount">
                         <Form.Label>Head Count:</Form.Label>
                         <Form.Control onChange={(e)=>setHeadcount(e.target.value)} as="input" min={1} type={"number"} />
                     </Form.Group>
 
-                    <Button variant="primary" type="submit">
+                    <Button variant="primary" onClick={(e)=>{
+                        e.preventDefault();
+                        saveEvent();
+                    }} >
                         Submit
                     </Button>
                 </Form>
