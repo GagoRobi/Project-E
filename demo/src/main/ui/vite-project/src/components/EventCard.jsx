@@ -10,7 +10,7 @@ export default function EventCard({event}) {
             <Card className="p-2">
                 <CardHeader>
                     <CardTitle>{title}</CardTitle>
-                    <CardSubtitle>{type}</CardSubtitle>
+                    <CardSubtitle>{type.name}</CardSubtitle>
                 </CardHeader>
                 <CardBody>
                     <CardText>{description}</CardText>

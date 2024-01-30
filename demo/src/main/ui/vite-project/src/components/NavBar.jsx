@@ -5,7 +5,7 @@ function NavBar() {
 
 
     return (
-        <div>
+        <div >
 
             <Navbar style={{zIndex : 15}} expand="md" className="nav opacity-75">
                 <Container>

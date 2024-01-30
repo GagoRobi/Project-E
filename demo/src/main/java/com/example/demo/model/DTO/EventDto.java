@@ -2,14 +2,18 @@ package com.example.demo.model.DTO;
 
 import com.example.demo.model.entities.Event;
 import com.example.demo.model.entities.EventType;
-import lombok.Data;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.UUID;
 
-@Data
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@Builder
 public class EventDto {
-    private UUID id;
     private String title;
     private EventType type;
     private String description;

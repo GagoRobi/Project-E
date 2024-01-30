@@ -1,9 +1,6 @@
 package com.example.demo.model.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.context.annotation.Primary;
 
@@ -21,7 +18,7 @@ public class Event {
     @GeneratedValue
     private UUID id;
     private String title;
-    //@ManyToMany
+    @ManyToOne
     private EventType type;
     private String description;
     private LocalDate date;

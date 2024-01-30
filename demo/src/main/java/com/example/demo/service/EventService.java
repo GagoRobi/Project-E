@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class EventService {
@@ -26,7 +27,7 @@ public class EventService {
         return eventDtos;
     }
 
-    public Event findEventById(long id){
+    public Event findEventById(UUID id){
         return eventRepository.findById(id).orElseThrow();
     }
     public Event addEvent(EventDto event){
