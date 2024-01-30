@@ -1,5 +1,6 @@
 import {Button, Card, Form} from "react-bootstrap";
 import {useEffect, useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 
 export default function EventCreator() {
@@ -10,7 +11,7 @@ export default function EventCreator() {
     const [headcount, setHeadcount] = useState(0);
     const [typeList, setTypeList] = useState([]);
     const [newEvent, setNewEvent] = useState()
-
+    const navigate = useNavigate();
     useEffect(() => {
         fetch("api/v1/event-types")
             .then((res) => res.json()).then((data) => {
@@ -32,6 +33,7 @@ export default function EventCreator() {
             })
         })
         console.log(newEvent)
+        navigate("/events");
     }
 
 
