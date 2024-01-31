@@ -31,9 +31,8 @@ export default function EventCreator() {
                 date,
                 headcount
             })
-        })
+        }).then(()=>navigate("/events"))
         console.log(newEvent)
-        navigate("/events");
     }
 
 

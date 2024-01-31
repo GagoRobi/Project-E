@@ -15,6 +15,7 @@ function NavBar() {
                         <Nav className="me-auto">
                             <Nav.Link href="/">Kezdőlap</Nav.Link>
                             <Nav.Link href="/events">Események</Nav.Link>
+                            <Nav.Link href="/reviews">Értékelések</Nav.Link>
                             <NavDropdown  title="Tanfolyamok" id="basic-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">

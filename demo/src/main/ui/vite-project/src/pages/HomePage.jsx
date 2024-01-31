@@ -13,9 +13,10 @@ function HomePage() {
             <Card className="opacity-75">
                 <CardHeader><CardTitle>Lorem Ipsum</CardTitle> </CardHeader>
                 <br/>
-                <CardSubtitle>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</CardSubtitle>
-                <CardBody >
-                    <CardText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu leo volutpat, pharetra
+                <CardSubtitle>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
+                    velit..."</CardSubtitle>
+                <CardBody>
+                <CardText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu leo volutpat, pharetra
                         diam quis, finibus quam. Aliquam luctus lectus vel pretium dignissim. Donec consequat rhoncus
                         est, nec egestas sem aliquam semper. Nullam tempor, purus id luctus molestie, ligula tellus
                         sagittis nisl, in dictum nisi nisi in ipsum. Etiam suscipit eu elit id posuere. Vivamus

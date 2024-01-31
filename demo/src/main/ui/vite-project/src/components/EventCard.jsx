@@ -14,7 +14,7 @@ import ConfirmMessageModal from "./ConfirmMessageModal.jsx";
 
 export default function EventCard({event, onDelete}) {
     const {id,title,type,description,date,headcount} = event;
-
+    const [c, setC] = useState(0)
 
 
     return (
@@ -26,13 +26,16 @@ export default function EventCard({event, onDelete}) {
                         <ConfirmMessageModal onSubmit={onDelete} />
                     </CardTitle>
                     <CardSubtitle>{type.name}</CardSubtitle>
+                    <CardText>{date}</CardText>
                 </CardHeader>
                 <CardBody>
                     <CardText>{description}</CardText>
                 </CardBody>
                 <CardFooter>
-                    <CardText>{date}</CardText>
+
                     <CardText>max: {headcount} person</CardText>
+                    <CardText>applied: {c}</CardText>
+                    <Button onClick={()=>setC(c +1)}>Apply</Button>
                 </CardFooter>
             </Card>
 

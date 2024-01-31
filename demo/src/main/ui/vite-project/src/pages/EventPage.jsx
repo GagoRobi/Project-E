@@ -2,10 +2,10 @@ import {useEffect, useState} from "react";
 import {map} from "react-bootstrap/ElementChildren";
 import EventCard from "../components/EventCard.jsx";
 import Loading from "../components/Loading.jsx";
-import {Button} from "react-bootstrap";
+import {Button, Container} from "react-bootstrap";
 
 function EventPage() {
-    //const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
     const [events, setEvents] = useState([]);
     const [reRender, setRerender] = useState(0)
     useEffect(()=>{
@@ -16,6 +16,7 @@ function EventPage() {
         fetch("api/v1/events")
             .then((res) => res.json()).then((d)=>{
             setEvents(d);
+            setLoading(false)
         });
     }
     function handleDeletion(id){
@@ -27,11 +28,14 @@ function EventPage() {
     }
 
     return(<div>
-        <h1>Events</h1> <Button href="/new-event">+</Button>
+
+        <Container>
+            <h1>Events</h1> <Button href="/new-event">Add new Event</Button>
+        </Container>
 
         {events ?
             events.map((event) => (
-                <EventCard key={event.id} event={event} onDelete={()=>handleDeletion(event.id)}/>
+                <EventCard key={event.id} event={event} onDelete={() => handleDeletion(event.id)}/>
             ))
             : <Loading/>}
     </div>)
