@@ -55,12 +55,9 @@ export default function EventCreator() {
                     </Form.Group>
                     <Form.Label>Type:</Form.Label>
                     <Form.Select aria-label="Default select example" onChange={(e)=>{
-                        console.log(e.target.selectedOptions[0].innerText)
-                        console.log(e.target.value)
-
                         setType({"id" : e.target.value, "name" : e.target.selectedOptions[0].innerText})}}>
                         <option selected={true} disabled={true}>Open to select type</option>
-                        {typeList && typeList.map((t) => (<option value={t.id}>{t.name}</option>))}
+                        {typeList && typeList.map((t) => (<option key={t.id} value={t.id}>{t.name}</option>))}
                     </Form.Select>
                     <Form.Group className="mb-3" controlId="formDate">
                         <Form.Label>Date:</Form.Label>

@@ -22,7 +22,7 @@ public class EventController {
     }
 
     @GetMapping
-    public List<EventDto> getAllEvents(){
+    public List<Event> getAllEvents(){
         System.out.println(eventService.getAllEvents());
         return eventService.getAllEvents();
     }

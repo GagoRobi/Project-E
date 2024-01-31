@@ -22,7 +22,7 @@ function EventPage() {
 
         {events ?
             events.map((event) => (
-                <EventCard key={event.id} event={event}/>
+                <EventCard key={event.id + "C"} event={event}/>
             ))
             : <Loading/>}
     </div>)

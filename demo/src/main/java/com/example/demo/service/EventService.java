@@ -20,11 +20,11 @@ public class EventService {
         this.eventRepository = eventRepository;
     }
 
-    public List<EventDto> getAllEvents(){
+    public List<Event> getAllEvents(){
         List<Event> events = eventRepository.findAll();
         List<EventDto> eventDtos = events.stream().map(EventDto::new).toList();
         System.out.println(eventDtos);
-        return eventDtos;
+        return events;
     }
 
     public Event findEventById(UUID id){
