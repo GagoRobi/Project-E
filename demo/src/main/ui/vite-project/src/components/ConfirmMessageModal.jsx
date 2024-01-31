@@ -2,10 +2,15 @@ import {useEffect, useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import {CloseButton} from "react-bootstrap";
+import {useNavigate} from "react-router-dom";
+import {render} from "react-dom";
 
-export default function ConfirmMessageModal() {
+/*
+  ConfirmMessageModal should get a callback function (onSubmit) that upon confirming our choice
+  will run the chosen task (i.e.: deletion, closing a tab, etc..)
+*/
+export default function ConfirmMessageModal({onSubmit}) {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -21,7 +26,7 @@ export default function ConfirmMessageModal() {
             <Button variant="secondary" onClick={handleClose}>
               No
             </Button>
-            <Button variant="primary" onClick={handleClose}>
+            <Button variant="primary" onClick={()=>{onSubmit(); handleClose()} }>
               Sure
             </Button>
           </Modal.Footer>

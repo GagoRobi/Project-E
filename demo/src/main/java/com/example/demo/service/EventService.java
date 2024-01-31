@@ -43,8 +43,8 @@ public class EventService {
     public boolean updateEvent(long id, EventDto eventDto){
         return false;
     }
-    public boolean deleteEventById(long id){
-        return false;
+    public void deleteEventById(UUID id){
+        eventRepository.deleteById(id);
     }
 
 }

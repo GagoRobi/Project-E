@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/events")
@@ -29,6 +30,11 @@ public class EventController {
     @PostMapping("/create")
     public Event addNewEvent(@RequestBody EventDto newEvent){
         return eventService.addEvent(newEvent);
+    }
+
+    @DeleteMapping("/delete")
+    public void deleteEvent(@RequestBody UUID id){
+        eventService.deleteEventById(id);
     }
 
 }

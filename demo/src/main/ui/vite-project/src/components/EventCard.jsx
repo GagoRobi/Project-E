@@ -12,8 +12,10 @@ import {
 import {useEffect, useState} from "react";
 import ConfirmMessageModal from "./ConfirmMessageModal.jsx";
 
-export default function EventCard({event}) {
+export default function EventCard({event, onDelete}) {
     const {id,title,type,description,date,headcount} = event;
+
+
 
     return (
         <div className="mx-5 m-1">
@@ -21,7 +23,7 @@ export default function EventCard({event}) {
             <Card className="p-2">
                 <CardHeader>
                     <CardTitle className={"position-relative"} >{title}
-                        <ConfirmMessageModal  />
+                        <ConfirmMessageModal onSubmit={onDelete} />
                     </CardTitle>
                     <CardSubtitle>{type.name}</CardSubtitle>
                 </CardHeader>
