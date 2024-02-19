@@ -7,6 +7,8 @@ import NavBar from './components/NavBar.jsx'
 import EventPage from "./pages/EventPage.jsx";
 import EventCreator from "./pages/EventCreator.jsx";
 import ReviewPage from "./pages/ReviewPage.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
+import RegisterPage from "./pages/RegisterPage.jsx";
 const router = createBrowserRouter([
 
     {
@@ -29,6 +31,14 @@ const router = createBrowserRouter([
                 path: "/reviews",
                 element: <ReviewPage/>
             },
+            {
+                path:"/login",
+                element: <LoginPage/>
+            },
+            {
+                path:"/register",
+                element:<RegisterPage/>
+            }
 
         ]
     }

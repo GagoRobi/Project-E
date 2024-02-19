@@ -4,13 +4,14 @@ import viteLogo from '/vite.svg'
 import {Button, Card, CardBody, CardHeader, CardSubtitle, CardText, CardTitle} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import backdrop from "bootstrap/js/src/util/backdrop.js";
+import {InlineWidget} from "react-calendly";
 
 function HomePage() {
     const [count, setCount] = useState(0)
 
     return (
         <>
-            <Card className="opacity-75">
+            <Card className="opacity-75 m-2 p-1">
                 <CardHeader><CardTitle>Lorem Ipsum</CardTitle> </CardHeader>
                 <br/>
                 <CardSubtitle>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
@@ -58,6 +59,12 @@ function HomePage() {
                 </CardBody>
 
             </Card>
+            <div className="">
+                <InlineWidget url="https://calendly.com/gagodev"  />
+            </div>
+            {/*<div className="calendly-inline-widget" data-url="https://calendly.com/gagodev" style={{minWidth:320, height:720}}></div>*/}
+            {/*<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>*/}
+
         </>
     )
 }

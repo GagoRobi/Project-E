@@ -11,7 +11,7 @@ import {
 } from "react-bootstrap";
 import {useEffect, useState} from "react";
 import ConfirmMessageModal from "./ConfirmMessageModal.jsx";
-
+import {PopupButton} from "react-calendly";
 export default function EventCard({event, onDelete}) {
     const {id,title,type,description,date,headcount} = event;
     const [c, setC] = useState(0)
@@ -35,7 +35,7 @@ export default function EventCard({event, onDelete}) {
 
                     <CardText>max: {headcount} person</CardText>
                     <CardText>applied: {c}</CardText>
-                    <Button onClick={()=>setC(c +1)}>Apply</Button>
+                    <PopupButton url="https://calendly.com/gagodev/meditation" rootElement={document.getElementById("root")} text="Click here to schedule!"/>
                 </CardFooter>
             </Card>
 

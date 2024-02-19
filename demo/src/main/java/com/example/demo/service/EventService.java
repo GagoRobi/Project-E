@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -40,8 +41,10 @@ public class EventService {
                 .build();
         return eventRepository.save(newEvent);
     }
-    public boolean updateEvent(long id, EventDto eventDto){
-        return false;
+    public boolean updateEvent(UUID id, EventDto eventDto){
+        Optional<Event> result = eventRepository.findById(id);
+
+        return result.isPresent();
     }
     public void deleteEventById(UUID id){
         eventRepository.deleteById(id);
