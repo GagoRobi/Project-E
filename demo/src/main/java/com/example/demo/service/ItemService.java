@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class ItemService {
@@ -20,21 +21,16 @@ public class ItemService {
     public List<Item> findAllItems() {
         return itemRepository.findAll();
     }
-    public Item findById(long id){
+    public Item findById(UUID id){
         return itemRepository.findById(id).orElseThrow(/*TODO*/);
     }
 
     public Item createItem(ItemDto item) {
-        Item createdItem = Item.
-                builder().
-                name(item.getName()).
-                price(item.getPrice()).
-                description(item.getDescription()).
-                pictureUrl(item.getPictureUrl()).
-                build();
+        Item createdItem = Item.builder().
+                name(item.getName()).price(item.getPrice()).description(item.getDescription()).pictureUrl(item.getPictureUrl()).build();
         return itemRepository.save(createdItem);
     }
-    public boolean deleteByID(long id){
+    public boolean deleteByID(UUID id){
         itemRepository.deleteById(id);
         return !itemRepository.existsById(id); //should return true if the Item is not in the DB!
     }

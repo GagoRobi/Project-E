@@ -2,7 +2,7 @@ package com.example.demo.model.DTO;
 
 import lombok.*;
 
-@AllArgsConstructor
+
 @NoArgsConstructor
 @Getter
 @Setter
@@ -12,4 +12,11 @@ public class ItemDto {
     private int price;
     private String description;
     private String pictureUrl;
+
+    public ItemDto(String name, int price, String description, String pictureUrl) {
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        this.pictureUrl = pictureUrl;
+    }
 }
