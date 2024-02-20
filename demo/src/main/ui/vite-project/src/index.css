@@ -2,8 +2,9 @@
     background-color: #45b20f;
     opacity: 0.76;
     padding: 2.2rem 0.5rem;
-    margin: 2rem ;
+    margin: 1.5rem ;
     border-radius: 7px;
+    min-width: fit-content;
 }
 body{
     background-size: cover;
