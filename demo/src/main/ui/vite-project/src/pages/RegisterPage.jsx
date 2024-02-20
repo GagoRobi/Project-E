@@ -33,7 +33,10 @@ export default function RegisterPage() {
             } else {
                 setValidPassword(true);
             }
-
+            if(validPassword && validEmail){
+                //fetch()
+                //TODO
+            }
         }
     };
 

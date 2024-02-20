@@ -9,6 +9,8 @@ import EventCreator from "./pages/EventCreator.jsx";
 import ReviewPage from "./pages/ReviewPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
+import WebShop from "./pages/WebShop.jsx";
+import ItemCreator from "./pages/ItemCreator.jsx";
 const router = createBrowserRouter([
 
     {
@@ -38,6 +40,14 @@ const router = createBrowserRouter([
             {
                 path:"/register",
                 element:<RegisterPage/>
+            },
+            {
+                path:"/shop",
+                element:<WebShop/>
+            },
+            {
+                path:"/create/item",
+                element:<ItemCreator/>
             }
 
         ]

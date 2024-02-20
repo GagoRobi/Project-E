@@ -7,6 +7,6 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface EventRepository extends JpaRepository<Event, UUID> {
-    Optional<Event> findById(UUID uuid);
-    void deleteById(UUID uuid);
+    //Optional<Event> findById(UUID uuid);
+    //void deleteById(UUID uuid);
 }
