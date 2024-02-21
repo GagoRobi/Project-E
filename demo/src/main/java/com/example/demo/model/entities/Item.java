@@ -1,5 +1,6 @@
 package com.example.demo.model.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -19,6 +20,7 @@ public class Item {
     private UUID id;
     private String name;
     private int price;
+    @Column(length = 2000)
     private String description;
     private String pictureUrl;
 }

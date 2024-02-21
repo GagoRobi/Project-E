@@ -1,21 +1,36 @@
-import {Button, Card} from "react-bootstrap";
+import {Button, Card, CardFooter, CardText, Col} from "react-bootstrap";
+import {useState} from "react";
+import {Link} from "react-router-dom";
+import CenteredModal from "./CenteredModal.jsx";
 
 export function ItemCard({item}) {
     const {name, price, description, pictureUrl} = item;
+    //const shortDescription = description.substring(0,250);
+    const [isShort, setIsShort] = useState(true);
+    const [modalShow, setModalShow] = useState(false);
 
     return (
-        <Card className="m-1" style={{ width: '18rem', minHeight: "fit-content" }}>
-            <Card.Img variant="top" src={pictureUrl} />
-            <Card.Body>
-                <Card.Title>{name}</Card.Title>
-                <Card.Text>
-                    {description}
-                </Card.Text>
-                <Card.Text>
-                    {price} HUF
-                </Card.Text>
-                <Button variant="primary">Add to Cart</Button>
-            </Card.Body>
-        </Card>
+            <Col>
+            <Card className="m-1" style={{position: "relative", height : '100%'}}>
+                <Card.Img onClick={() => setModalShow(true)}  style={{height: '12rem'}} variant="top" src={pictureUrl}/>
+                <Card.Body onClick={() => setModalShow(true)}  className="mb-2">
+                    <Card.Title>{name}</Card.Title>
+                    {description.length < 250 ? <Card.Text>{description}</Card.Text>
+                        :  <div><Card.Text>{description.substring(0, 100)}</Card.Text></div>}
+                    <Card.Text>
+                        {price} HUF
+                    </Card.Text>
+                </Card.Body>
+                <CardFooter>
+                    <Button className="p1" style={{position: "absolute", margin: "auto", right: 0, left: 0, bottom: 0}}
+                            variant="primary">Add to Cart</Button>
+                </CardFooter>
+            </Card>
+                <CenteredModal
+                    item = {item}
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                />
+            </Col>
     );
 }
