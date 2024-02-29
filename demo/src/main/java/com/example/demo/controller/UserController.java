@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.model.auth.AuthenticationRequest;
 import com.example.demo.model.auth.AuthenticationResponse;
+import com.example.demo.repository.UserRepository;
 import com.example.demo.service.AuthenticationService;
 import com.example.demo.model.auth.RegisterRequest;
 import lombok.RequiredArgsConstructor;
@@ -13,12 +14,19 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class UserController {
     private final AuthenticationService service;
+    private final UserRepository userRepository;
+
     @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request){
-        return ResponseEntity.ok(service.register(request));
+    public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request) {
+        if (userRepository.findByEmail(request.getEmail()).isPresent()) {
+            return ResponseEntity.ofNullable(new AuthenticationResponse("email taken!"));
+        } else {
+            return ResponseEntity.ok(service.register(request));
+        }
     }
+
     @PostMapping("/authenticate")
-    public ResponseEntity<AuthenticationResponse> authenticate (@RequestBody AuthenticationRequest request){
+    public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request) {
         return ResponseEntity.ok(service.authenticate(request));
     }
 }

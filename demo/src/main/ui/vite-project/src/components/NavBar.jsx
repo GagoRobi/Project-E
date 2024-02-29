@@ -1,12 +1,17 @@
 import {Container, Nav, Navbar, NavDropdown, Spinner} from "react-bootstrap";
 import {Outlet} from "react-router-dom";
+import {useEffect, useState} from "react";
 
 function NavBar() {
+    const [sessionToken,setSessiontoken] = useState("");
 
+    useEffect(()=>{
+        setSessiontoken(sessionStorage.getItem("token"));
+    },[sessionToken])
 
     return (
         <div>
-
+            <div>{sessionToken}</div>
             <Navbar style={{zIndex: 15}} expand="md" className="nav opacity-75">
                 <Container>
                     <Navbar.Brand href="/">Brand-Name</Navbar.Brand>
@@ -31,10 +36,11 @@ function NavBar() {
                                 </NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
-                        <Nav>
+
+                        {sessionToken ? <Nav><Nav.Link href="/" onClick={()=>sessionStorage.clear()}>Logout</Nav.Link></Nav> :  <Nav>
                             <Nav.Link href="/login">Login</Nav.Link>
                             <Nav.Link href="/register">Register</Nav.Link>
-                        </Nav>
+                        </Nav>}
                     </Navbar.Collapse>
                 </Container>
 

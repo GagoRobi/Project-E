@@ -13,7 +13,11 @@ export default function EventCreator() {
     const [newEvent, setNewEvent] = useState()
     const navigate = useNavigate();
     useEffect(() => {
-        fetch("api/v1/event-types")
+        fetch("api/v1/event-types", {
+            headers: {
+                "Authorization": `Bearer ${sessionStorage.getItem('token')}`
+            }
+        })
             .then((res) => res.json()).then((data) => {
             setTypeList(data);
         })
@@ -22,7 +26,8 @@ export default function EventCreator() {
         fetch("api/v1/events/create" , {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${sessionStorage.getItem('token')}`
             },
             body: JSON.stringify({
                 title,

@@ -13,7 +13,11 @@ function EventPage() {
 
     },[])
     function getEvents(){
-        fetch("api/v1/events")
+        fetch("api/v1/events", {
+            headers: {
+                "Authorization": `Bearer ${sessionStorage.getItem('token')}`
+            }
+        })
             .then((res) => res.json()).then((d)=>{
             setEvents(d);
             setLoading(false)
@@ -22,7 +26,10 @@ function EventPage() {
     function handleDeletion(id){
         fetch("/api/v1/events/delete",{
             method: "DELETE",
-            headers:{"Content-Type" : "application/json"},
+            headers:{
+                "Content-Type" : "application/json",
+                "Authorization": `Bearer ${sessionStorage.getItem('token')}`
+            },
             body: JSON.stringify(id)})
             setEvents([...events.filter((e)=> e.id !== id)])
     }

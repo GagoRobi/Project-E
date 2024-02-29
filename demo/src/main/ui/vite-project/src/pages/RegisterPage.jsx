@@ -9,65 +9,103 @@ export default function RegisterPage() {
     const [validEmail, setValidEmail] = useState(true);
     const [validPassword, setValidPassword] = useState(true);
     const [inputType, setInputType] = useState("password");
-
-    function confirmPasswordMatch() {
-        return password === passwordConfirm;
-    }
+    const [emailTaken, setEmailTaken] = useState(false);
+    const [submitPushed, setSubmitPushed] = useState(false);
 
     function confirmEmailMatch() {
-        return email === emailConfirm;
+        if (email == emailConfirm) {
+            setValidPassword(true);
+        } else {
+            setValidPassword(false);
+        }
+    }
+
+    function confirmPasswordMatch() {
+        if (password == passwordConfirm) {
+            setValidEmail(true);
+        } else {
+            setValidEmail(false);
+        }
     }
 
     const handleSubmit = (event) => {
+        confirmEmailMatch();
+        confirmPasswordMatch();
+        console.log(validEmail)
         event.preventDefault();
         const form = event.currentTarget;
         console.log(form.checkValidity());
         if (form.checkValidity()) {
-            if (!confirmEmailMatch()) {
-                setValidEmail(false);
-            } else {
-                setValidEmail(true);
-            }
-            if (!confirmPasswordMatch()) {
-                setValidPassword(false);
-            } else {
-                setValidPassword(true);
-            }
-            if(validPassword && validEmail){
-                //fetch()
-                //TODO
-            }
+            // if (validPassword && validEmail) { todo
+                fetch("api/v1/auth/register", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({email, password})
+                }).then(res => res.json())
+                    .then(data => {
+                        if (data.token === "email taken!") {
+                            setEmailTaken(true);
+                        }
+                    })
+
+
+            // }
         }
     };
 
     return (
-        <div className="p-2 mb-1 rounded-2" style={{backgroundColor: 'rgba(255, 255, 255, 0.8)'}}><Form onSubmit={handleSubmit}>
+        <div className="p-2 mb-1 rounded-2" style={{backgroundColor: 'rgba(255, 255, 255, 0.8)'}}><Form
+            onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control required type="email"
-                              placeholder="Enter email" onChange={(e) => setEmail(e.target.value)}/>
-                {!validEmail && <FormText className="text-danger">not matching email</FormText>}
+                              placeholder="Enter email" onChange={(e) => {
+                    setEmail(e.target.value);
+                    confirmEmailMatch();
+                }}/>
+                {submitPushed && <>{emailTaken ?
+                    <FormText className="text-danger">This email is already in use!</FormText> : <></>}
+                    {!validEmail ? <FormText className="text-danger">not matching email</FormText> : <></>}</>}
+
             </Form.Group>
+
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control required type="email"
-                              placeholder="Confirm email" onChange={(e) => setEmailConfirm(e.target.value)}/>
-                {!validEmail && <FormText className="text-danger">not matching email</FormText>}
+                              placeholder="Confirm email" onChange={(e) => {
+                    setEmailConfirm(e.target.value);
+                    confirmEmailMatch();
+                }}/>
+                {submitPushed && <> {emailTaken ?
+                    <FormText className="text-danger">This email is already in use!</FormText> : <></>}
+                    {!validEmail ? <FormText className="text-danger">not matching email</FormText> : <></>}</>}
+
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
                 <Form.Control required type={inputType} placeholder="Password"
-                              onChange={(e) => setPassword(e.target.value)}/>
-                {!validPassword && <FormText className="text-danger">not matching password</FormText>}
+                              onChange={(e) => {
+                                  setPassword(e.target.value);
+                                  confirmPasswordMatch();
+                              }}/>
+                {submitPushed && <>{(!validPassword && passwordConfirm.length > 0) ?
+                    <FormText className="text-danger">not matching password</FormText> : <></>}</>}
+
 
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Confirm Password</Form.Label>
                 <Form.Control required type={inputType} placeholder="Confirm Password"
-                              onChange={(e) => setPasswordConfirm(e.target.value)}/>
-                {!validPassword && <FormText className="text-danger">not matching password</FormText>}
+                              onChange={(e) => {
+                                  setPasswordConfirm(e.target.value);
+                                  confirmPasswordMatch();
+                              }}/>
+                {submitPushed && <>{(!validPassword && passwordConfirm.length > 0) ?
+                    <FormText className="text-danger">not matching password</FormText> : <></>}</>}
+
             </Form.Group>
+
             <Form.Group className="p-1">
                 <Form.Label>Show Password</Form.Label>
                 <Form.Check onChange={(e) => {
@@ -80,9 +118,11 @@ export default function RegisterPage() {
 
                 </Form.Check>
             </Form.Group>
+
             <Button variant="primary" type="submit">
                 Submit
             </Button>
+
         </Form></div>
     )
 }

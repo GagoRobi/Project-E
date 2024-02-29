@@ -7,6 +7,7 @@ import com.example.demo.model.auth.RegisterRequest;
 import com.example.demo.model.entities.User;
 import com.example.demo.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -26,6 +27,10 @@ public class AuthenticationService {
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(Role.USER_DEFAULT)
                 .build();
+        System.out.println(repository.save(user));
+        if(repository.findByEmail(user.getEmail()).isPresent()){
+            return AuthenticationResponse.builder().token("User Already Exists!").build();
+        }
         repository.save(user);
         var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
