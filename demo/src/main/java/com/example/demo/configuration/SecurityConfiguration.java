@@ -18,12 +18,15 @@ public class SecurityConfiguration {
 
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
     private final AuthenticationProvider authenticationProvider;
+
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("api/v1/auth/**")/*TODO secure endpoints*/
-                        .permitAll()
+                .authorizeHttpRequests(auth -> auth/*TODO secure endpoints*/
+                        .requestMatchers("/api/v1/**").permitAll()
+                        .requestMatchers("/api/v1/event-types/create").hasRole("ADMIN")
+                        .requestMatchers("/api/v1/events/create").hasRole("ADMIN")
+                        .requestMatchers("/api/v1/item/create").hasRole("ADMIN")
                         .anyRequest()
                         .authenticated()
                 )

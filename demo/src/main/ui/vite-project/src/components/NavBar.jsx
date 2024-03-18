@@ -3,15 +3,14 @@ import {Outlet} from "react-router-dom";
 import {useEffect, useState} from "react";
 
 function NavBar() {
-    const [sessionToken,setSessiontoken] = useState("");
+    const [sessionToken,setSessionToken] = useState("");
 
     useEffect(()=>{
-        setSessiontoken(sessionStorage.getItem("token"));
+        setSessionToken(sessionStorage.getItem("token"));
     },[sessionToken])
 
     return (
         <div>
-            <div>{sessionToken}</div>
             <Navbar style={{zIndex: 15}} expand="md" className="nav opacity-75">
                 <Container>
                     <Navbar.Brand href="/">Brand-Name</Navbar.Brand>
@@ -21,7 +20,9 @@ function NavBar() {
                             <Nav.Link href="/">Kezdőlap</Nav.Link>
                             <Nav.Link href="/events">Események</Nav.Link>
                             <Nav.Link href="/reviews">Értékelések</Nav.Link>
+                            <Nav.Link href="/">Szolgáltatások</Nav.Link>
                             <Nav.Link href="/shop">WebShop</Nav.Link>
+
                             <NavDropdown title="Tanfolyamok" id="basic-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">
@@ -37,7 +38,9 @@ function NavBar() {
                             </NavDropdown>
                         </Nav>
 
-                        {sessionToken ? <Nav><Nav.Link href="/" onClick={()=>sessionStorage.clear()}>Logout</Nav.Link></Nav> :  <Nav>
+                        {sessionToken?.length > 0 ?<Nav><Nav.Link href="/admin">Admin</Nav.Link></Nav> :<></>}
+                        {sessionToken?.length > 0 ? <Nav><Nav.Link href="/" onClick={()=>sessionStorage.clear()}>Logout</Nav.Link></Nav>
+                            :  <Nav>
                             <Nav.Link href="/login">Login</Nav.Link>
                             <Nav.Link href="/register">Register</Nav.Link>
                         </Nav>}

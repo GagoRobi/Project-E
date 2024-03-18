@@ -25,7 +25,7 @@ public class AuthenticationService {
         var user = User.builder()
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
-                .role(Role.USER_DEFAULT)
+                .role(Role.ROLE_ADMIN)
                 .build();
         System.out.println(repository.save(user));
         if(repository.findByEmail(user.getEmail()).isPresent()){

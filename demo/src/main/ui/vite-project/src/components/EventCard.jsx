@@ -16,14 +16,13 @@ export default function EventCard({event, onDelete}) {
     const {id,title,type,description,date,headcount} = event;
     const [c, setC] = useState(0)
 
-
     return (
         <div className="mx-5 m-1">
 
             <Card className="p-2">
                 <CardHeader>
                     <CardTitle className={"position-relative"} >{title}
-                        <ConfirmMessageModal onSubmit={onDelete} />
+                        {sessionStorage.getItem("token")?.length > 5 ? <ConfirmMessageModal onSubmit={onDelete}/> : <></>}
                     </CardTitle>
                     <CardSubtitle>{type.name}</CardSubtitle>
                     <CardText>{date}</CardText>

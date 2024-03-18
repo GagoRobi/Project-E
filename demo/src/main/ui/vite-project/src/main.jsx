@@ -11,6 +11,7 @@ import LoginPage from "./pages/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import WebShop from "./pages/WebShop.jsx";
 import ItemCreator from "./pages/ItemCreator.jsx";
+import AdminPage from "./pages/AdminPage.jsx";
 const router = createBrowserRouter([
 
     {
@@ -48,7 +49,12 @@ const router = createBrowserRouter([
             {
                 path:"/create/item",
                 element:<ItemCreator/>
+            },
+            {
+                path: "/admin",
+                element: <AdminPage/>
             }
+
 
         ]
     }

@@ -37,7 +37,7 @@ function EventPage() {
     return(<div>
 
         <Container>
-            <h1>Events</h1> <Button href="/new-event">Add new Event</Button>
+            <h1>Events</h1>
         </Container>
 
         {events ?

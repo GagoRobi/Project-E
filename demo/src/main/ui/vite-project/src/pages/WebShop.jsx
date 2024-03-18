@@ -19,10 +19,6 @@ export default function WebShop() {
 
     return (
         <>
-          <p>
-              web-shop</p>
-            <Link to="/create/item"><Button>+</Button></Link>
-
             <Container>
                 <Row xs={1} sm={2} md={3} lg={4} className="me-auto">
               {itemList && itemList.map((item) => <ItemCard key={item.id} item={item}/>)}
