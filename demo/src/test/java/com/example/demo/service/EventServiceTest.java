@@ -32,7 +32,7 @@ class EventServiceTest {
     public void givenEventProvided() {
         //Arrange
         UUID id = UUID.randomUUID();
-        EventDto eventDto = new EventDto("title", new EventType(id, "name"), "desc", LocalDate.now(), 1);
+        EventDto eventDto = new EventDto("title", new EventType(id, "name"), "desc", LocalDate.now(), 1,"link");
         Event resultEvent = Event.builder().id(id).build();
         Mockito.when(mockRepository.findById(id)).thenReturn(Optional.of(resultEvent));
         //Act

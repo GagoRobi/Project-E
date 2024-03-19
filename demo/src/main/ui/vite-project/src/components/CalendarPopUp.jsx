@@ -11,13 +11,13 @@ export default function CalendarPopUp({link}) {
     return (
         <>
             <Button variant="primary" onClick={handleShow}>
-                Launch demo modal
+                Check available appointments
             </Button>
 
             <Modal fullscreen={true} show={show} onHide={handleClose}>
-                <Modal.Body>
+                <Modal.Body>cd
                     <iframe style={{"width" : "100%", "height" : "100%"}}
-                        src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ05OV25ijboz6fGPXNBTy000vQyYqw_MpH6kjkKZ2SP97ryXIuU5AhaJHzx436c5iOCwfGQBdfa?gv=true"
+                        src={link}
                         ></iframe>
                 </Modal.Body>
                 <Modal.Footer>

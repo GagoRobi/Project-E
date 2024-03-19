@@ -23,5 +23,6 @@ public class Event {
     private String description;
     private LocalDate date;
     private int headcount;
+    private String link;
 
 }

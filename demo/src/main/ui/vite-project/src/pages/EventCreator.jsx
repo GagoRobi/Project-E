@@ -11,6 +11,7 @@ export default function EventCreator() {
     const [headcount, setHeadcount] = useState(0);
     const [typeList, setTypeList] = useState([]);
     const [newEvent, setNewEvent] = useState()
+    const [link, setLink] = useState()
     const navigate = useNavigate();
     useEffect(() => {
         fetch("api/v1/event-types", {
@@ -34,7 +35,8 @@ export default function EventCreator() {
                 type,
                 description,
                 date,
-                headcount
+                headcount,
+                link
             })
         }).then(()=>navigate("/events"))
         console.log(newEvent)
@@ -70,6 +72,10 @@ export default function EventCreator() {
                     <Form.Group className="mb-3" controlId="formCount">
                         <Form.Label>Head Count:</Form.Label>
                         <Form.Control onChange={(e)=>setHeadcount(e.target.value)} as="input" min={1} type={"number"} />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formCount">
+                        <Form.Label>Calendar Link:</Form.Label>
+                        <Form.Control onChange={(e) => setLink(e.target.value)} as="input" min={1}/>
                     </Form.Group>
 
                     <Button variant="primary" onClick={(e)=>{

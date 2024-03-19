@@ -38,6 +38,7 @@ public class EventService {
                 .description(event.getDescription())
                 .date(event.getDate())
                 .headcount(event.getHeadcount())
+                .link(event.getLink())
                 .build();
         return eventRepository.save(newEvent);
     }

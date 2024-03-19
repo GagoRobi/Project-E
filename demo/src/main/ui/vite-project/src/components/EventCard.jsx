@@ -36,7 +36,7 @@ export default function EventCard({event, onDelete}) {
                     <CardText>max: {headcount} person</CardText>
                     <CardText>applied: {c}</CardText>
 
-                    <CalendarPopUp/>
+                    <CalendarPopUp link={link} />
 
                 </CardFooter>
             </Card>

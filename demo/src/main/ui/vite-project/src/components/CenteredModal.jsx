@@ -13,8 +13,9 @@ export default function CenteredModal(props) {
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
             centered
+
         >
-            <Modal.Header closeButton>
+            <Modal.Header  closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
                     {name}
                 </Modal.Title>

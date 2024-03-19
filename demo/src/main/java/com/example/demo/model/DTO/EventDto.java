@@ -19,6 +19,7 @@ public class EventDto {
     private String description;
     private LocalDate date;
     private int headcount;
+    private String link;
 
     public EventDto(Event event){
         this.title = event.getTitle();
@@ -26,5 +27,6 @@ public class EventDto {
         this.description = event.getDescription();
         this.date = event.getDate();
         this.headcount = event.getHeadcount();
+        this.link = event.getLink();
     }
 }

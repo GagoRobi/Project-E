@@ -11,7 +11,7 @@ export function ItemCard({item}) {
 
     return (
             <Col>
-            <Card className="m-1" style={{position: "relative", height : '100%'}}>
+            <Card className="m-1 pointing" style={{position: "relative", height : '100%', backgroundColor:'rgba(241,255,234,0.91)'}}>
                 <Card.Img onClick={() => setModalShow(true)}  style={{height: '12rem'}} variant="top" src={pictureUrl}/>
                 <Card.Body onClick={() => setModalShow(true)}  className="mb-2">
                     <Card.Title>{name}</Card.Title>
