@@ -12,8 +12,9 @@ import {
 import {useEffect, useState} from "react";
 import ConfirmMessageModal from "./ConfirmMessageModal.jsx";
 import {PopupButton} from "react-calendly";
+import CalendarPopUp from "./CalendarPopUp.jsx";
 export default function EventCard({event, onDelete}) {
-    const {id,title,type,description,date,headcount} = event;
+    const {id,title,type,description,date,headcount,link} = event;
     const [c, setC] = useState(0)
 
     return (
@@ -34,7 +35,9 @@ export default function EventCard({event, onDelete}) {
 
                     <CardText>max: {headcount} person</CardText>
                     <CardText>applied: {c}</CardText>
-                    <PopupButton url="https://calendly.com/gagodev/meditation" rootElement={document.getElementById("root")} text="Click here to schedule!"/>
+
+                    <CalendarPopUp/>
+
                 </CardFooter>
             </Card>
 

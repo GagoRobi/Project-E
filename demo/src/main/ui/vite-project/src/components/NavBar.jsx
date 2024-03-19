@@ -52,6 +52,7 @@ function NavBar() {
 
 
             </Navbar>
+
             <Outlet/>
         </div>
     )
