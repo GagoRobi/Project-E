@@ -1,13 +1,16 @@
 import {Container, Nav, Navbar, NavDropdown, Spinner} from "react-bootstrap";
-import {Outlet} from "react-router-dom";
+import {Link, Outlet} from "react-router-dom";
 import {useEffect, useState} from "react";
+import {render} from "react-dom";
 
 function NavBar() {
-    const [sessionToken,setSessionToken] = useState("");
+    const [sessionToken,setSessionToken] = useState(null);
+    const [loggedIn, setLoggedIn] = useState(false);
 
     useEffect(()=>{
         setSessionToken(sessionStorage.getItem("token"));
-    },[sessionToken])
+        console.log(loggedIn)
+    },[loggedIn])
 
     return (
         <div>
@@ -37,23 +40,16 @@ function NavBar() {
                                 </NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
-
-                        {sessionToken?.length > 0 ?<Nav><Nav.Link href="/admin">Admin</Nav.Link></Nav> :<></>}
-                        {sessionToken?.length > 0 ? <Nav><Nav.Link href="/" onClick={()=>sessionStorage.clear()}>Logout</Nav.Link></Nav>
+                        {sessionToken != null ? <Nav><Nav.Link href="/admin">Admin</Nav.Link><Nav.Link href="/" onClick={()=>sessionStorage.clear()}>Logout</Nav.Link></Nav>
                             :  <Nav>
                             <Nav.Link href="/login">Login</Nav.Link>
                             <Nav.Link href="/register">Register</Nav.Link>
                         </Nav>}
                     </Navbar.Collapse>
                 </Container>
-
-
-
-
-
             </Navbar>
 
-            <Outlet/>
+            <Outlet context={[loggedIn, setLoggedIn]} />
         </div>
     )
 

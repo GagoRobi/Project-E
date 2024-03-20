@@ -1,23 +1,32 @@
 import {Button, Form} from "react-bootstrap";
 import {useEffect, useState} from "react";
-import {useNavigate} from "react-router-dom";
-
+import {useNavigate, useOutletContext} from "react-router-dom";
 export default function LoginPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
+    const [resStatus, setStatus] = useState(null);
+    const [loggedIn, setLoggedIn] = useOutletContext();
 
-    useEffect(()=>{
+    // useEffect(()=>{
+    //     if(sessionStorage.getItem("token") !== null && sessionStorage.getItem("token").length > 6){
+    //         navigate('/');
+    //     }
+    // },[sessionStorage.getItem("token")])
 
-    },[])
-
-    const handleSubmit = (event) => {
+    const  handleSubmit = async (event) => {
         event.preventDefault();
-        fetch("/api/v1/auth/authenticate", {
+        const response = await fetch("/api/v1/auth/authenticate", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({email, password})
-        }).then(res=>res.json()).then(data=> sessionStorage.setItem("token",data.token))
+        });
+        const data = await response.json();
+        sessionStorage.setItem("token", data.token);
+        if(response.status === 200){
+            setLoggedIn(true);
+            navigate('/');
+        }
 
     }
 

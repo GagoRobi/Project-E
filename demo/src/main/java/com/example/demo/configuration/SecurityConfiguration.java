@@ -23,12 +23,13 @@ public class SecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth/*TODO secure endpoints*/
-                        .requestMatchers("/api/v1/**").permitAll()
                         .requestMatchers("/api/v1/event-types/create").hasRole("ADMIN")
+                        .requestMatchers("/api/v1/event-types/delete").hasRole("ADMIN")
                         .requestMatchers("/api/v1/events/create").hasRole("ADMIN")
+                        .requestMatchers("/api/v1/events/delete").hasRole("ADMIN")
                         .requestMatchers("/api/v1/item/create").hasRole("ADMIN")
-                        .anyRequest()
-                        .authenticated()
+                        .requestMatchers("/api/v1/item/delete").hasRole("ADMIN")
+                        .anyRequest().permitAll()
                 )
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
