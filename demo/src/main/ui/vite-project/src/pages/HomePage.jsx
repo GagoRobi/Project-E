@@ -1,13 +1,7 @@
-import {useState} from 'react'
-import reactLogo from '../assets/react.svg'
-import viteLogo from '/vite.svg'
-import {Button, Card, CardBody, CardHeader, CardSubtitle, CardText, CardTitle} from "react-bootstrap";
+import {Card, CardBody, CardHeader, CardSubtitle, CardText, CardTitle} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import backdrop from "bootstrap/js/src/util/backdrop.js";
-import {InlineWidget} from "react-calendly";
 
 function HomePage() {
-    const [count, setCount] = useState(0)
 
     return (
         <>
@@ -17,7 +11,7 @@ function HomePage() {
                 <CardSubtitle>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
                     velit..."</CardSubtitle>
                 <CardBody>
-                <CardText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu leo volutpat, pharetra
+                    <CardText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu leo volutpat, pharetra
                         diam quis, finibus quam. Aliquam luctus lectus vel pretium dignissim. Donec consequat rhoncus
                         est, nec egestas sem aliquam semper. Nullam tempor, purus id luctus molestie, ligula tellus
                         sagittis nisl, in dictum nisi nisi in ipsum. Etiam suscipit eu elit id posuere. Vivamus
@@ -59,9 +53,6 @@ function HomePage() {
                 </CardBody>
 
             </Card>
-            <div className="">
-                <InlineWidget url="https://calendly.com/gagodev"  />
-            </div>
             {/*<div className="calendly-inline-widget" data-url="https://calendly.com/gagodev" style={{minWidth:320, height:720}}></div>*/}
             {/*<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>*/}
 

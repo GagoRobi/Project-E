@@ -7,7 +7,6 @@ export default function WebShop() {
     const [itemList, setItemList] = useState([]);
 
     useEffect(() => {
-        console.log(localStorage.getItem("token"))
         fetch("api/v1/item/all", {
             headers: {
                 "Authorization": `Bearer ${sessionStorage.getItem('token')}`

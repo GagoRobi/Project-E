@@ -1,12 +1,12 @@
-import {useOutletContext} from "react-router-dom";
-import {Card} from "react-bootstrap";
+import {json, useOutletContext} from "react-router-dom";
+import {Card, Col, Row} from "react-bootstrap";
 
 export default function CheckoutPage () {
-    const [notUsed1, notUsed2, cart, setCart] = useOutletContext();
-
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    //todo fetch based on cart/localstorage
     return (
         <>
-            {cart?.map(el => <Card>{el}</Card>)}
+            {cart.map((e) => (<Row style={{color : "green"}} id={e.id}><Col>{e.id}</Col><Col>{e.count}</Col></Row>))}
         </>
     )
 }

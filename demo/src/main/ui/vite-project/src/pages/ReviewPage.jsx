@@ -33,10 +33,6 @@ export default function ReviewPage() {
                     )}
                 </Row>
             </Card>
-            <iframe src="https://calendar.google.com/calendar/embed?src=9ba56c8c0e39b7b181733d2b442da1ce9afb0fe6b5745667edb1f949bf38a730%40group.calendar.google.com&ctz=Europe%2FBudapest"
-                 width="800" height="600" frameBorder="0" scrolling="no">
-
-            </iframe>
         </div>
     )
 }

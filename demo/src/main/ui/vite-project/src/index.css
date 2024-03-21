@@ -10,11 +10,11 @@
     cursor: pointer;
 }
 body{
+    background-color: #212121;
     background-size: cover;
-    background-image: url("https://images.pexels.com/photos/2730217/pexels-photo-2730217.jpeg");
+    /*background-image: url("https://images.pexels.com/photos/2730217/pexels-photo-2730217.jpeg");*/
     background-repeat: no-repeat;
     background-position: center;
-    background-attachment: fixed;
 }
 #root {
     max-width: 100rem;
