@@ -13,7 +13,7 @@ export function ItemCard({item}) {
 
     function addItemToCart() {
         if (itemCount > 0 && itemCount < 51) {
-            const cartItem = {"id": item.id, "count": parseInt(itemCount)};
+            const cartItem = {"id": item.id, "count": parseInt(itemCount), "price" : parseInt(price)};
             if (localStorage.getItem("cart") === null) {
                 localStorage.setItem("cart", JSON.stringify([cartItem]))
             } else {
@@ -31,14 +31,14 @@ export function ItemCard({item}) {
         if (arrayOfMatchingItem.length > 0) {
             count += arrayOfMatchingItem[0].count;
             id = arrayOfMatchingItem[0].id;
+
         }
         const restArray = JSON.parse(localStorage.getItem("cart")).filter((e) => e.id !== item.id);
         if (restArray.length > 0) {
             //console.log([...restArray,{id, count}])
-            localStorage.setItem("cart", JSON.stringify([...restArray, {id, count}]));
+            localStorage.setItem("cart", JSON.stringify([...restArray, {id, count, price}]));
         } else {
-            console.log("this should have not happened...")
-            localStorage.setItem("cart", JSON.stringify([{id, count}]));
+            localStorage.setItem("cart", JSON.stringify([{id, count, price}]));
         }
     }
 

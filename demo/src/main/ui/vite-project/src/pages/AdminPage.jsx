@@ -7,8 +7,8 @@ export default function AdminPage () {
 
     return (
         <>
-            <Button href="/new-event">Add new Event</Button>
-            <Link to="/create/item"><Button>Add Item to Shop</Button></Link>
+            <Link to="/new-event" style={{margin :"0.3rem"}}><Button>Add new Event</Button></Link>
+            <Link to="/create/item" style={{margin :"0.3rem"}}><Button>Add Item to Shop</Button></Link>
         </>
     )
 }

@@ -1,9 +1,9 @@
 .nav{
     background-color: #45b20f;
     opacity: 0.76;
-    padding: 2.2rem 0.5rem;
-    margin: 1.5rem ;
-    border-radius: 7px;
+    margin-bottom: 0.5rem;
+    padding: 2rem 0.5rem;
+    border-radius: 4px;
     min-width: fit-content;
 }
 .pointing:hover{

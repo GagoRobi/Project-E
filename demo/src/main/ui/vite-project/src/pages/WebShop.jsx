@@ -1,7 +1,6 @@
-import {Button, CardGroup, Container, Row} from "react-bootstrap";
+import {Container, Row} from "react-bootstrap";
 import {useEffect, useState} from "react";
 import {ItemCard} from "../components/ItemCard.jsx";
-import {Link} from "react-router-dom";
 
 export default function WebShop() {
     const [itemList, setItemList] = useState([]);
@@ -11,7 +10,7 @@ export default function WebShop() {
             headers: {
                 "Authorization": `Bearer ${sessionStorage.getItem('token')}`
             }
-        }).then((res)=> res.json()).then((d)=>
+        }).then((res) => res.json()).then((d) =>
             setItemList(d)
         );
     }, []);
@@ -20,8 +19,8 @@ export default function WebShop() {
         <>
             <Container>
                 <Row xs={1} sm={2} md={3} lg={4} className="me-auto">
-              {itemList && itemList.map((item) => <ItemCard key={item.id} item={item}/>)}
-            </Row>
+                    {itemList && itemList.map((item) => <ItemCard key={item.id} item={item}/>)}
+                </Row>
             </Container>
         </>
     )

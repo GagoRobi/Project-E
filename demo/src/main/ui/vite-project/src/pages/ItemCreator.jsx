@@ -35,7 +35,7 @@ export default function ItemCreator() {
 
 
     return (
-        <>
+        <div className="p-2 mb-1 rounded-2" style={{backgroundColor: 'rgba(255, 255, 255, 0.8)'}}>
             <Form>
                 <Form.Group className="mb-3">
                     <Form.Label>Name</Form.Label>
@@ -61,6 +61,6 @@ export default function ItemCreator() {
                     handleSave()
                 }}>Save</Button>
             </Form>
-        </>
+        </div>
     )
 }

@@ -5,7 +5,7 @@ export default function LoginPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
-    const  handleSubmit = async (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         const response = await fetch("/api/v1/auth/authenticate", {
             method: "POST",
@@ -20,7 +20,7 @@ export default function LoginPage() {
     }
 
     return (
-        <><Form onSubmit={handleSubmit}>
+        <div className="p-2 mb-1 rounded-2" style={{backgroundColor: 'rgba(255, 255, 255, 0.8)'}}><Form onSubmit={handleSubmit}>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
@@ -34,6 +34,6 @@ export default function LoginPage() {
             <Button variant="primary" type="submit">
                 Submit
             </Button>
-        </Form></>
+        </Form></div>
     )
 }

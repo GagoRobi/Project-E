@@ -45,7 +45,7 @@ export default function EventCreator() {
 
     return (
 
-        <div>
+        <div >
             <Card className="mx-lg-5 p-4">
                 <Form>
                     <Form.Group className="mb-3" controlId="formTitle">

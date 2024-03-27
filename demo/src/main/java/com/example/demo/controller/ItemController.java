@@ -1,11 +1,13 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.DTO.ItemDto;
+import com.example.demo.model.DTO.ItemListDto;
 import com.example.demo.model.entities.Item;
 import com.example.demo.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.Array;
 import java.util.List;
 import java.util.UUID;
 
@@ -24,10 +26,13 @@ public class ItemController {
         return itemService.findAllItems();
     }
 
-    @GetMapping
-    public Item getItemById(@RequestBody UUID id){
-        return itemService.findById(id);
+    @GetMapping("/{id}")
+    public Item getItemById(@PathVariable String id){
+        System.out.println(id);
+        UUID uuid = UUID.fromString(id);
+        return itemService.findById(uuid);
     }
+
     @PostMapping("/create")
     public Item createItem(@RequestBody ItemDto itemDto){
         return itemService.createItem(itemDto);

@@ -1,13 +1,14 @@
 import {Button, Container, Nav, Navbar, NavDropdown, Spinner} from "react-bootstrap";
 import {Link, Outlet, useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {render} from "react-dom";
 
 function NavBar() {
     const [sessionToken, setSessionToken] = useState(null);
     const [cartSize, setCartSize] = useState(0);
-    const [cartRefreshTrigger, setCartRefreshTrigger] = useState(0)
+    const [cartRefreshTrigger, setCartRefreshTrigger] = useState(0);
+    const [actualIds, setActualIds] = useState([]);
     const navigate = useNavigate();
+
     function countCartItems() {
         let counter = 0;
         if (localStorage.getItem("cart") != null) {
@@ -19,11 +20,19 @@ function NavBar() {
     }
 
     useEffect(() => {
+        setSessionToken(sessionStorage.getItem("token"))
         if (localStorage.getItem("cart") != null) {
+            const items = JSON.parse(localStorage.getItem("cart"));
             setCartSize(JSON.parse(localStorage.getItem("cart")).length)
+            for (const es of items) {
+                setActualIds([...actualIds, es]);
+
+            }
+            setCartSize(countCartItems());
+        } else {
+            setCartSize(0);
         }
-        setCartSize(countCartItems());
-    }, [cartRefreshTrigger])
+    }, [cartRefreshTrigger, cartSize])
 
     return (
         <div>
@@ -33,11 +42,11 @@ function NavBar() {
                     <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="/">Kezdőlap</Nav.Link>
-                            <Nav.Link href="/events">Események</Nav.Link>
-                            <Nav.Link href="/reviews">Értékelések</Nav.Link>
-                            <Nav.Link>Szolgáltatások</Nav.Link>
-                            <Nav.Link href="/shop">WebShop</Nav.Link>
+                            <Link className="btn" to="/">Kezdőlap</Link>
+                            <Link className="btn" to="/events">Események</Link>
+                            <Link className="btn" to="/reviews">Értékelések</Link>
+                            <Link className="btn">Szolgáltatások</Link>
+                            <Link className="btn" to='/shop'>WebShop</Link>
 
                             <NavDropdown title="Tanfolyamok" id="basic-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -54,18 +63,18 @@ function NavBar() {
                             </NavDropdown>
                         </Nav>
                         {/*todo button*/}
-                        {sessionToken != null ? <Nav><Nav.Link href="/admin">Admin</Nav.Link><Nav.Link href="/"
+                        {sessionStorage.getItem("token") != null ? <Nav><Nav.Link href="/admin">Admin</Nav.Link><Nav.Link href="/"
                                                                                                        onClick={() => sessionStorage.clear()}>Logout</Nav.Link></Nav>
                             : <Nav>
-                                <Nav.Link href="/login">Login</Nav.Link>
-                                <Nav.Link href="/register">Register</Nav.Link>
+                                <Link className="btn" to="/login">Login</Link>
+                                <Link className="btn" to="/register">Register</Link>
                             </Nav>}
                     </Navbar.Collapse>
                     <Nav>
 
                         <Button onClick={(e) => {
                             e.preventDefault();
-                            if(localStorage.getItem("cart") !== null) {
+                            if (localStorage.getItem("cart") !== null) {
                                 navigate("/checkout");
                             }
                         }}>
@@ -80,7 +89,6 @@ function NavBar() {
                     </Nav>
                 </Container>
             </Navbar>
-
             <Outlet context={[cartRefreshTrigger, setCartRefreshTrigger]}/>
         </div>
     )
