@@ -16,9 +16,9 @@ export default function CalendarPopUp({link}) {
 
             <Modal fullscreen={true} show={show} onHide={handleClose}>
                 <Modal.Body>cd
-                    <iframe style={{"width" : "100%", "height" : "100%"}}
-                        src={link}
-                        ></iframe>
+                    <iframe style={{"width": "100%", "height": "100%"}}
+                            src={link}
+                    ></iframe>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>

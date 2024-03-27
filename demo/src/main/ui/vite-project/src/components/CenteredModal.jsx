@@ -1,6 +1,5 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import {ModalDialog} from "react-bootstrap";
 
 export default function CenteredModal(props) {
 
@@ -15,15 +14,16 @@ export default function CenteredModal(props) {
             centered
 
         >
-            <Modal.Header  closeButton>
+            <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
                     {name}
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <img src={pictureUrl} style={{width: "75%", textAlign:"center", display:"flex", margin:"auto"}} alt="picture"/>
+                <img src={pictureUrl} style={{width: "75%", textAlign: "center", display: "flex", margin: "auto"}}
+                     alt="picture"/>
                 <h3 className="m-2">Description:</h3>
-                <p style={{wordWrap:"break-word"}}>
+                <p style={{wordWrap: "break-word"}}>
                     {description}
                 </p>
                 <h4>Price:</h4><p>{price}.-</p>

@@ -31,24 +31,20 @@ export default function RegisterPage() {
     const handleSubmit = (event) => {
         confirmEmailMatch();
         confirmPasswordMatch();
-        console.log(validEmail)
         event.preventDefault();
         const form = event.currentTarget;
-        console.log(form.checkValidity());
         if (form.checkValidity()) {
             // if (validPassword && validEmail) { todo
-                fetch("api/v1/auth/register", {
-                    method: "POST",
-                    headers: {"Content-Type": "application/json"},
-                    body: JSON.stringify({email, password})
-                }).then(res => res.json())
-                    .then(data => {
-                        if (data.token === "email taken!") {
-                            setEmailTaken(true);
-                        }
-                    })
-
-
+            fetch("api/v1/auth/register", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({email, password})
+            }).then(res => res.json())
+                .then(data => {
+                    if (data.token === "email taken!") {
+                        setEmailTaken(true);
+                    }
+                })
             // }
         }
     };

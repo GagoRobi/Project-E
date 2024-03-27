@@ -1,20 +1,10 @@
-import {
-    Button,
-    Card,
-    CardBody,
-    CardFooter,
-    CardHeader,
-    CardSubtitle,
-    CardText,
-    CardTitle,
-    CloseButton
-} from "react-bootstrap";
-import {useEffect, useState} from "react";
+import {Card, CardBody, CardFooter, CardHeader, CardSubtitle, CardText, CardTitle} from "react-bootstrap";
+import {useState} from "react";
 import ConfirmMessageModal from "./ConfirmMessageModal.jsx";
-import {PopupButton} from "react-calendly";
 import CalendarPopUp from "./CalendarPopUp.jsx";
+
 export default function EventCard({event, onDelete}) {
-    const {id,title,type,description,date,headcount,link} = event;
+    const {id, title, type, description, date, headcount, link} = event;
     const [c, setC] = useState(0)
 
     return (
@@ -22,8 +12,9 @@ export default function EventCard({event, onDelete}) {
 
             <Card className="p-2">
                 <CardHeader>
-                    <CardTitle className={"position-relative"} >{title}
-                        {sessionStorage.getItem("token")?.length > 5 ? <ConfirmMessageModal onSubmit={onDelete}/> : <></>}
+                    <CardTitle className={"position-relative"}>{title}
+                        {sessionStorage.getItem("token")?.length > 5 ?
+                            <ConfirmMessageModal onSubmit={onDelete}/> : <></>}
                     </CardTitle>
                     <CardSubtitle>{type.name}</CardSubtitle>
                     <CardText>{date}</CardText>
@@ -36,7 +27,7 @@ export default function EventCard({event, onDelete}) {
                     <CardText>max: {headcount} person</CardText>
                     <CardText>applied: {c}</CardText>
 
-                    <CalendarPopUp link={link} />
+                    <CalendarPopUp link={link}/>
 
                 </CardFooter>
             </Card>

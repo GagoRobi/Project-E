@@ -1,8 +1,10 @@
 package com.example.demo.model.entities;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import lombok.*;
-import org.springframework.context.annotation.Primary;
 
 import java.time.LocalDate;
 import java.util.UUID;

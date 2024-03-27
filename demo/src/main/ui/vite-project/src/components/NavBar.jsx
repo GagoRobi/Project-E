@@ -63,8 +63,9 @@ function NavBar() {
                             </NavDropdown>
                         </Nav>
                         {/*todo button*/}
-                        {sessionStorage.getItem("token") != null ? <Nav><Nav.Link href="/admin">Admin</Nav.Link><Nav.Link href="/"
-                                                                                                       onClick={() => sessionStorage.clear()}>Logout</Nav.Link></Nav>
+                        {sessionStorage.getItem("token") != null ?
+                            <Nav><Nav.Link href="/admin">Admin</Nav.Link><Nav.Link href="/"
+                                                                                   onClick={() => sessionStorage.clear()}>Logout</Nav.Link></Nav>
                             : <Nav>
                                 <Link className="btn" to="/login">Login</Link>
                                 <Link className="btn" to="/register">Register</Link>

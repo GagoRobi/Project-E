@@ -8,6 +8,7 @@ export default function ItemCreator() {
     const [link, setLink] = useState("");
     const [description, setDescription] = useState("");
     const navigate = useNavigate();
+
     function handleSave() {
         fetch("/api/v1/item/create",
             {
@@ -21,18 +22,17 @@ export default function ItemCreator() {
                     name,
                     price,
                     description,
-                    pictureUrl : link
+                    pictureUrl: link
                 })
-            }).then((response)=> {
-            if (response.ok){
+            }).then((response) => {
+            if (response.ok) {
                 navigate("/shop");
-            }else{
+            } else {
                 console.log(response.status)
             }
         })
 
     }
-
 
     return (
         <div className="p-2 mb-1 rounded-2" style={{backgroundColor: 'rgba(255, 255, 255, 0.8)'}}>

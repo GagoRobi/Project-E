@@ -2,7 +2,10 @@ package com.example.demo.model.entities;
 
 import com.example.demo.model.Role;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,7 +19,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Data
 @Builder
-@Table(name="app_user")
+@Table(name = "app_user")
 public class User implements UserDetails {
     @Id
     @GeneratedValue
@@ -36,8 +39,9 @@ public class User implements UserDetails {
     public String getUsername() {
         return email;
     }
+
     @Override
-    public String getPassword(){
+    public String getPassword() {
         return password;
     }
 

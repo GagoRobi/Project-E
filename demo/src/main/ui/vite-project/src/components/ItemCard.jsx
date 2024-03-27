@@ -13,7 +13,7 @@ export function ItemCard({item}) {
 
     function addItemToCart() {
         if (itemCount > 0 && itemCount < 51) {
-            const cartItem = {"id": item.id, "count": parseInt(itemCount), "price" : parseInt(price)};
+            const cartItem = {"id": item.id, "count": parseInt(itemCount), "price": parseInt(price)};
             if (localStorage.getItem("cart") === null) {
                 localStorage.setItem("cart", JSON.stringify([cartItem]))
             } else {

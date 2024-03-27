@@ -1,4 +1,4 @@
-import {Button, CardText} from "react-bootstrap";
+import {Button} from "react-bootstrap";
 import {Fragment, useEffect, useState} from "react";
 import CheckoutTable from "../components/CheckoutTable.jsx";
 import {Link, useNavigate, useOutletContext} from "react-router-dom";
@@ -27,7 +27,9 @@ export default function CheckoutPage() {
     return (
         <>
             <Button style={{marginBottom: "1rem"}} onClick={() => {
-                localStorage.removeItem("cart"); setCartRefreshTrigger(cartRefreshTrigger + 1) ; navigate("/")
+                localStorage.removeItem("cart");
+                setCartRefreshTrigger(cartRefreshTrigger + 1);
+                navigate("/")
             }}>delete cart</Button>
             <CheckoutTable props={itemList}/>
             <Link className="btn bg-primary" target="_blank" to="https://simple.hu/simplepay/">Confirm Purchase</Link>

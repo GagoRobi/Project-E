@@ -5,7 +5,6 @@ import com.example.demo.model.entities.EventType;
 import lombok.*;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 
 @AllArgsConstructor
@@ -21,7 +20,7 @@ public class EventDto {
     private int headcount;
     private String link;
 
-    public EventDto(Event event){
+    public EventDto(Event event) {
         this.title = event.getTitle();
         this.type = event.getType();
         this.description = event.getDescription();

@@ -1,4 +1,4 @@
-import {Card, CardBody, CardFooter, CardGroup, CardText, Col, Row} from "react-bootstrap";
+import {Card, CardBody, CardFooter, CardText, Col, Row} from "react-bootstrap";
 import {useState} from "react";
 
 export default function ReviewPage() {

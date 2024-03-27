@@ -13,6 +13,7 @@ import WebShop from "./pages/WebShop.jsx";
 import ItemCreator from "./pages/ItemCreator.jsx";
 import AdminPage from "./pages/AdminPage.jsx";
 import CheckoutPage from "./pages/CheckoutPage.jsx";
+
 const router = createBrowserRouter([
 
 
@@ -37,20 +38,20 @@ const router = createBrowserRouter([
                 element: <ReviewPage/>
             },
             {
-                path:"/login",
+                path: "/login",
                 element: <LoginPage/>
             },
             {
-                path:"/register",
-                element:<RegisterPage/>
+                path: "/register",
+                element: <RegisterPage/>
             },
             {
-                path:"/shop",
-                element:<WebShop/>
+                path: "/shop",
+                element: <WebShop/>
             },
             {
-                path:"/create/item",
-                element:<ItemCreator/>
+                path: "/create/item",
+                element: <ItemCreator/>
             },
             {
                 path: "/admin",
@@ -58,7 +59,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/checkout",
-                element : <CheckoutPage/>
+                element: <CheckoutPage/>
             }
 
 
@@ -69,7 +70,7 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-      <RouterProvider router={router}/>
-  </React.StrictMode>,
+    <React.StrictMode>
+        <RouterProvider router={router}/>
+    </React.StrictMode>,
 )

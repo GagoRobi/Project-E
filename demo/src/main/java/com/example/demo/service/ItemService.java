@@ -21,7 +21,8 @@ public class ItemService {
     public List<Item> findAllItems() {
         return itemRepository.findAll();
     }
-    public Item findById(UUID id){
+
+    public Item findById(UUID id) {
         return itemRepository.findById(id).orElseThrow(/*TODO*/);
     }
 
@@ -30,7 +31,8 @@ public class ItemService {
                 name(item.getName()).price(item.getPrice()).description(item.getDescription()).pictureUrl(item.getPictureUrl()).build();
         return itemRepository.save(createdItem);
     }
-    public boolean deleteByID(UUID id){
+
+    public boolean deleteByID(UUID id) {
         itemRepository.deleteById(id);
         return !itemRepository.existsById(id); //should return true if the Item is not in the DB!
     }

@@ -1,6 +1,9 @@
 package com.example.demo.model.DTO;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
 @NoArgsConstructor
