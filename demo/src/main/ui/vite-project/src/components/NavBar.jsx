@@ -1,6 +1,8 @@
 import {Button, Container, Nav, Navbar, NavDropdown, Spinner} from "react-bootstrap";
 import {Link, Outlet, useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
+import {gapi} from "gapi-script";
+const clientID = "801331285763-0d1jm62ckr7rh40t111vrh0vthrjpc5l.apps.googleusercontent.com";
 
 function NavBar() {
     const [sessionToken, setSessionToken] = useState(null);
@@ -34,6 +36,17 @@ function NavBar() {
         }
     }, [cartRefreshTrigger, cartSize])
 
+    useEffect(()=>{
+        function start(){
+            gapi.client.init({
+                clientId: clientID,
+                scope: ""
+            })
+        };
+
+        gapi.load('client:auth2',start);
+    });
+    //var accesToken = gapi.auth.getToken().access_token;
     return (
         <div>
             <Navbar style={{zIndex: 15}} expand="lg" className="nav opacity-75">
