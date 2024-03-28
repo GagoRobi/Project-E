@@ -9,7 +9,7 @@ export default function GoogleLogoutButton () {
 
 
     return (
-        <div style={{margin : "0px 5px"}} id="signOutButton">
+        <div style={{margin : "10px 5px"}} id="signOutButton">
             <GoogleLogout
                 clientId={clientID}
                 buttonText="Logout"

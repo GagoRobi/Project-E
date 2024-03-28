@@ -44,7 +44,7 @@ export default function LoginPage() {
                 </Button>
             </Form>
 
-            <ButtonGroup>
+            <ButtonGroup >
                 <GoogleLoginButton />
                 <GoogleLogoutButton/>
             </ButtonGroup>
