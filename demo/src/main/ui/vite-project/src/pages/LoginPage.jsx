@@ -10,7 +10,7 @@ export default function LoginPage() {
     const navigate = useNavigate();
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const response = await fetch("/api/v1/auth/authenticate", {
+        const response = await fetch("https://project-e-service.onrender.com/api/v1/auth/authenticate", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({email, password})

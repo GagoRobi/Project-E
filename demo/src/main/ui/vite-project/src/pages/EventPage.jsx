@@ -13,7 +13,7 @@ function EventPage() {
     }, [])
 
     function getEvents() {
-        fetch("api/v1/events", {
+        fetch("https://project-e-service.onrender.com/api/v1/events", {
             headers: {
                 "Authorization": `Bearer ${sessionStorage.getItem('token')}`
             }
