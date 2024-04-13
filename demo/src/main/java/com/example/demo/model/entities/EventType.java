@@ -23,4 +23,7 @@ public class EventType {
     private UUID id;
     private String name;
 
+    public EventType(String name) {
+        this.name = name;
+    }
 }
