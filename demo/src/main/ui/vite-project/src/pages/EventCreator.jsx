@@ -25,7 +25,7 @@ export default function EventCreator() {
     }, []);
 
     function saveEvent() {
-        fetch("api/v1/events/create", {
+        fetch("https://project-e-service.onrender.com/api/v1/events/create", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

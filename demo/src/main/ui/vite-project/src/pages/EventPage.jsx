@@ -26,7 +26,7 @@ function EventPage() {
     }
 
     function handleDeletion(id) {
-        fetch("/api/v1/events/delete", {
+        fetch("https://project-e-service.onrender.com/api/v1/events/delete", {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",

@@ -35,7 +35,7 @@ export default function RegisterPage() {
         const form = event.currentTarget;
         if (form.checkValidity()) {
             // if (validPassword && validEmail) { todo
-            fetch("api/v1/auth/register", {
+            fetch("https://project-e-service.onrender.com/api/v1/auth/register", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({email, password})

@@ -6,7 +6,7 @@ export default function WebShop() {
     const [itemList, setItemList] = useState([]);
 
     useEffect(() => {
-        fetch("api/v1/item/all", {
+        fetch("https://project-e-service.onrender.com/api/v1/item/all", {
             headers: {
                 "Authorization": `Bearer ${sessionStorage.getItem('token')}`
             }

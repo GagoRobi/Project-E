@@ -10,7 +10,7 @@ export default function ItemCreator() {
     const navigate = useNavigate();
 
     function handleSave() {
-        fetch("/api/v1/item/create",
+        fetch("https://project-e-service.onrender.com/api/v1/item/create",
             {
                 method: "POST",
                 headers: {
