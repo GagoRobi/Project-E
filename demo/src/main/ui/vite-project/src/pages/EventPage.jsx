@@ -40,7 +40,6 @@ function EventPage() {
     return (<div>
         <Container>
             <h1>Events</h1>
-            <img alt="picture" src={img1}/>
         </Container>
         {events ?
             events.map((event) => (

@@ -44,7 +44,7 @@ export default function EventCreator() {
     }
 
     return (
-
+            //TODO FORM VALIDATION, -> CHECK IF FIELDS ARE VALID
         <div>
             <Card className="mx-lg-5 p-4">
                 <Form>
