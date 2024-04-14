@@ -61,6 +61,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+> [!IMPORTANT]  
 > <span style="color:orange">This project is still under development! </span><br/> 
 
 This is a full-stack web-application for a small business that offers various events, from summer camps to one-on-one talk sessions.
