@@ -2,7 +2,6 @@ import {useEffect, useState} from "react";
 import EventCard from "../components/EventCard.jsx";
 import Loading from "../components/Loading.jsx";
 import {Container} from "react-bootstrap";
-import img1 from "../assets/img.png";
 
 function EventPage() {
     const [loading, setLoading] = useState(true);
