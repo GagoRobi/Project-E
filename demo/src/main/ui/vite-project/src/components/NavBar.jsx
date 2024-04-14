@@ -57,23 +57,24 @@ function NavBar() {
                         <Nav className="me-auto">
                             <Link className="btn" to="/">Kezdőlap</Link>
                             <Link className="btn" to="/events">Események</Link>
-                            <Link className="btn" to="/reviews">Értékelések</Link>
+                            {/*<Link className="btn" to="/reviews">Értékelések</Link> TODO*/}
                             <Link className="btn">Szolgáltatások</Link>
                             <Link className="btn" to='/shop'>WebShop</Link>
 
-                            <NavDropdown title="Tanfolyamok" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">
-                                    Another action
-                                </NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                                <NavDropdown.Divider/>
-                                <NavDropdown.Item>
-                                    <Spinner className="invisible">
-                                        <span className="visible">°</span>
-                                    </Spinner>
-                                </NavDropdown.Item>
-                            </NavDropdown>
+                            {/*TODO*/}
+                            {/*<NavDropdown title="Tanfolyamok" id="basic-nav-dropdown">*/}
+                            {/*    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>*/}
+                            {/*    <NavDropdown.Item href="#action/3.2">*/}
+                            {/*        Another action*/}
+                            {/*    </NavDropdown.Item>*/}
+                            {/*    <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>*/}
+                            {/*    <NavDropdown.Divider/>*/}
+                            {/*    <NavDropdown.Item>*/}
+                            {/*        <Spinner className="invisible">*/}
+                            {/*            <span className="visible">°</span>*/}
+                            {/*        </Spinner>*/}
+                            {/*    </NavDropdown.Item>*/}
+                            {/*</NavDropdown>*/}
                         </Nav>
                         {/*todo button*/}
                         {sessionStorage.getItem("token") != null ?
