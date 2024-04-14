@@ -76,7 +76,7 @@ function NavBar() {
                             {/*    </NavDropdown.Item>*/}
                             {/*</NavDropdown>*/}
                         </Nav>
-                        {/*todo button*/}
+
                         {sessionStorage.getItem("token") != null ?
                             <Nav><Link className="btn" to="/admin">Admin</Link>
 
