@@ -44,10 +44,10 @@ export default function LoginPage() {
                 </Button>
             </Form>
 
-            <ButtonGroup >
-                <GoogleLoginButton />
-                <GoogleLogoutButton/>
-            </ButtonGroup>
+            {/*<ButtonGroup >*/}
+            {/*    <GoogleLoginButton />*/}
+            {/*    <GoogleLogoutButton/>*/}
+            {/*</ButtonGroup>*/}
         </div>
     )
 }

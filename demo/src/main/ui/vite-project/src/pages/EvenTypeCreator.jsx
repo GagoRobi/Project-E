@@ -34,7 +34,7 @@ async function handleSubmit(){
     }
 
 const fetchEvents = async () => {
-    const response = await fetch('/api/v1/event-types')
+    const response = await fetch('https://project-e-service.onrender.com/api/v1/event-types')
     const data = await response.json();
     setEventList(data);
 }
