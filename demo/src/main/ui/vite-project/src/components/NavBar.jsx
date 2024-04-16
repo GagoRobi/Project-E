@@ -49,16 +49,16 @@ function NavBar() {
     //var accesToken = gapi.auth.getToken().access_token;
     return (
         <div>
-            <Navbar style={{zIndex: 15}} expand="lg" className="nav opacity-75">
+            <Navbar style={{zIndex: 15}} expand="lg" className="nav">
                 <Container>
-                    <Navbar.Brand href="/">Brand-Name</Navbar.Brand>
+                    <Navbar.Brand href="/">Brand-Logo</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
                             <Link className="btn" to="/">Kezdőlap</Link>
                             <Link className="btn" to="/events">Események</Link>
                             {/*<Link className="btn" to="/reviews">Értékelések</Link> TODO*/}
-                            <Link className="btn">Szolgáltatások</Link>
+                            <Link className="btn" to={"/services"}>Szolgáltatások</Link>
                             <Link className="btn" to='/shop'>WebShop</Link>
 
                             {/*TODO*/}

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Button, Card} from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
 
-export function EvenTypeCreator() {
+export default function EvenTypeCreator() {
 const [evenTypeName, setEventTypeName] = useState("");
 const [eventList , setEventList] = useState([]);
 const [deleteId, setDeleteId] = useState(null);

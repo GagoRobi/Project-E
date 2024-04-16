@@ -1,55 +1,42 @@
-import {Card, CardBody, CardHeader, CardSubtitle, CardText, CardTitle} from "react-bootstrap";
+import {Card, CardBody, CardHeader, CardSubtitle, CardText, CardTitle, Col, Image, Row} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import face from '../../../../resources/service-images/faceshot.jpg'
 
 function HomePage() {
 
     return (
         <>
-            <Card className="opacity-75 m-2 p-1">
-                <CardHeader><CardTitle>Lorem Ipsum</CardTitle> </CardHeader>
+            <Card className="p-1">
+                <CardHeader><CardTitle>Hello there, wonderful souls!</CardTitle> </CardHeader>
                 <br/>
-                <CardSubtitle>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-                    velit..."</CardSubtitle>
+                <CardSubtitle>Step into the serene embrace of our digital haven.</CardSubtitle>
                 <CardBody>
-                    <CardText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu leo volutpat, pharetra
-                        diam quis, finibus quam. Aliquam luctus lectus vel pretium dignissim. Donec consequat rhoncus
-                        est, nec egestas sem aliquam semper. Nullam tempor, purus id luctus molestie, ligula tellus
-                        sagittis nisl, in dictum nisi nisi in ipsum. Etiam suscipit eu elit id posuere. Vivamus
-                        imperdiet consectetur felis a imperdiet. In ut porta quam. Phasellus quam nunc, consequat sit
-                        amet lectus non, pretium egestas massa.
+                    <Image src={face} style={{width: '45%', float: 'left', margin: '15px'}}/>
+                    <CardText style={{ padding: '0 5%', textAlign: 'justify'}}>
 
-                        Cras blandit, quam eu vestibulum pretium, felis neque finibus tellus, commodo tristique nisl
-                        augue a urna. Phasellus mauris purus, dictum nec arcu quis, consequat facilisis mauris. Maecenas
-                        feugiat orci lacus, vel tincidunt libero auctor congue. Integer ultricies viverra tempor.
-                        Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam scelerisque nisi ac tellus
-                        lobortis interdum. Nullam est metus, tempus eget consectetur condimentum, maximus et felis.
-                        Nulla id risus mauris. Proin eu vulputate lectus, id bibendum metus. Nam ac purus lobortis,
-                        vulputate dui ut, varius turpis. Nam ultricies at orci sed consectetur. Morbi ac fermentum ante,
-                        egestas sollicitudin urna.
+                        I'm Emily, and I'm absolutely delighted to welcome you here. Amidst the whirlwind of daily life,
+                        we've carved out a peaceful oasis where you can find respite and renewal.<br/>
 
-                        Duis sit amet diam orci. Fusce lacus urna, commodo eu arcu vitae, ullamcorper ornare diam.
-                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                        Donec id quam vitae dolor hendrerit bibendum. Morbi est ante, cursus eget aliquet ac, aliquet
-                        dapibus leo. Mauris at purus diam. Duis rutrum magna urna, eget pharetra nunc accumsan sit amet.
-                        Nulla tempus et tellus vitae rutrum. Vivamus lectus neque, sodales non nisi et, dapibus
-                        tincidunt nisi. Ut eleifend scelerisque mauris id sodales. Praesent aliquet mollis hendrerit.
+                        As a passionate advocate for holistic well-being, my mission is to nurture growth, healing, and
+                        connection. Through a variety of offerings including group and solo therapy sessions, enriching
+                        kid summer camps, empowering women circles, and personalized coaching, I aim to empower each
+                        individual on their unique journey of self-discovery and empowerment.
 
-                        Nam in mi condimentum, finibus velit sed, blandit arcu. Sed ullamcorper nisl lorem, ut ultrices
-                        ipsum elementum ut. Suspendisse sapien metus, pharetra ac sem a, finibus aliquam eros. Nunc
-                        scelerisque felis eu pellentesque tempus. Nulla ornare blandit nulla et tempus. Donec in nibh
-                        cursus, tempus nulla id, sodales velit. Aenean tincidunt egestas euismod. Ut tempor imperdiet mi
-                        non venenatis. Integer eget erat quis arcu cursus varius. Cras elementum arcu ac nibh cursus
-                        vestibulum. Vestibulum ut felis felis. Mauris aliquet iaculis erat eget auctor. Proin a elit
-                        tristique, suscipit nisl id, faucibus sem. Vivamus egestas mauris vitae leo fringilla euismod.
-                        Nunc ultrices lectus tempus, porta nunc non, congue mauris.
+                        This website isn't just a virtual space—it's a sanctuary for the soul. It's a place where you
+                        can explore, learn, and embark on a path of self-care and transformation. Whether you're seeking
+                        solace, support, or simply a sense of belonging, you'll find it here.
 
-                        Mauris maximus mauris at ligula tincidunt, eu hendrerit erat sodales. Curabitur ut lacus ut
-                        nulla mollis semper. Donec finibus imperdiet commodo. Quisque urna massa, pharetra ut sagittis
-                        a, dignissim vitae odio. Nulla ut pharetra risus. Donec cursus odio eget turpis rhoncus, sit
-                        amet auctor mauris vulputate. Aenean sed urna justo. Proin finibus arcu et sapien consequat
-                        convallis. Suspendisse finibus eget neque eu rutrum. Phasellus eget mi cursus, feugiat neque
-                        nec, auctor purus.
+                        But our journey doesn't end with me—it's about all of us. It's about coming together as a
+                        community, lifting each other up, and creating a ripple effect of positivity and growth. So,
+                        take a moment to explore our offerings, and if something speaks to your heart, don't hesitate to
+                        reach out. Whether you're ready to take the next step on your journey or simply curious to learn
+                        more, I'm here to support you every step of the way.
+
+                        Thank you for joining us on this extraordinary adventure. Together, let's embark on a journey of
+                        healing and transformation.
                     </CardText>
+
+
                 </CardBody>
 
             </Card>
