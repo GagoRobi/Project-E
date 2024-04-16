@@ -13,6 +13,7 @@ import WebShop from "./pages/WebShop.jsx";
 import ItemCreator from "./pages/ItemCreator.jsx";
 import AdminPage from "./pages/AdminPage.jsx";
 import CheckoutPage from "./pages/CheckoutPage.jsx";
+import {EvenTypeCreator} from "./pages/EvenTypeCreator.jsx";
 
 const router = createBrowserRouter([
 
@@ -60,7 +61,11 @@ const router = createBrowserRouter([
             {
                 path: "/checkout",
                 element: <CheckoutPage/>
-            }
+            },
+            {
+                path:"/event-type",
+                element : <EvenTypeCreator/>
+            },
 
 
         ]

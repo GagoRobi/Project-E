@@ -18,7 +18,7 @@ export default function CheckoutPage() {
     }, [idList]);
 
     const fetchItems = async () => {
-        const fetchPromises = idList.map(id => fetch(`/api/v1/item/${id}`));
+        const fetchPromises = idList.map(id => fetch(`https://project-e-service.onrender.com/api/v1/item/${id}`));
         const responses = await Promise.all(fetchPromises);
         const data = await Promise.all(responses.map(response => response.json()));
         setItemList(data);

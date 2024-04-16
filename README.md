@@ -15,7 +15,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
+  <a href="https://github.com/GagoRobi/Project-E">
     <img src="./demo/src/main/ui/vite-project/src/assets/yin-yang.svg" alt="Logo" width="80" height="80">
   </a>
 
@@ -50,7 +50,6 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
 </ol>
@@ -61,6 +60,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+> [!IMPORTANT]  
 > <span style="color:orange">This project is still under development! </span><br/> 
 
 This is a full-stack web-application for a small business that offers various events, from summer camps to one-on-one talk sessions.
@@ -243,8 +243,7 @@ Distributed under the MIT License.
 * Robert Gago - gagorobi96@gmail.com <br/>
 * [![linkedin-shield]][linkedin-url] <br/>
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
-
+Project Link: [https://github.com/GagoRobi/Project-E](https://github.com/GagoRobi/Project-E)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->

@@ -14,7 +14,7 @@ export default function EventCreator() {
     const [link, setLink] = useState()
     const navigate = useNavigate();
     useEffect(() => {
-        fetch("api/v1/event-types", {
+        fetch("https://project-e-service.onrender.com/api/v1/event-types", {
             headers: {
                 "Authorization": `Bearer ${sessionStorage.getItem('token')}`
             }
