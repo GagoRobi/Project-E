@@ -10,7 +10,7 @@ export default function EventCard({event, onDelete}) {
     return (
         <div className="mx-5 m-1">
 
-            <Card className="p-2">
+            <Card style={{maxWidth : '35rem'}} className="p-2">
                 <CardHeader>
                     <CardTitle className={"position-relative"}>{title}
                         {sessionStorage.getItem("token")?.length > 5 ?
