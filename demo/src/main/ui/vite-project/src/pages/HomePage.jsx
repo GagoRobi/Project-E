@@ -12,7 +12,7 @@ function HomePage() {
                 <CardSubtitle>Step into the serene embrace of our digital haven.</CardSubtitle>
                 <CardBody>
                     <Image src={face} style={{width: '45%', float: 'left', margin: '15px'}}/>
-                    <CardText style={{ padding: '0 5%', textAlign: 'justify'}}>
+                    <CardText style={{ padding: '0 5%',marginTop : '15px', textAlign: 'justify'}}>
 
                         I'm Emily, and I'm absolutely delighted to welcome you here. Amidst the whirlwind of daily life,
                         we've carved out a peaceful oasis where you can find respite and renewal.<br/>

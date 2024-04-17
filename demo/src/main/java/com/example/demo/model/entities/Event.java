@@ -1,9 +1,6 @@
 package com.example.demo.model.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -22,6 +19,7 @@ public class Event {
     private String title;
     @ManyToOne
     private EventType type;
+    @Column(length = 500)
     private String description;
     private LocalDate date;
     private int headcount;
