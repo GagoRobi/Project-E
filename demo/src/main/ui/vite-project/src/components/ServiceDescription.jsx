@@ -2,7 +2,7 @@ import {useState} from "react";
 import Modal from "react-bootstrap/Modal";
 import {Button, Collapse} from "react-bootstrap";
 
-export default function ServiceDescription ({title, description}) {
+export default function ServiceDescription ({description}) {
     const [open, setOpen] = useState(false);
 
     return (

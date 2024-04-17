@@ -8,7 +8,7 @@ export default function serviceCard({title, cardImage, description}) {
             <Card.Img style={{marginTop : '4px'}} variant="top"  src={cardImage} />
             <Card.Body>
                 <Card.Title>{title}</Card.Title>
-                <ServiceDescription title={title} description={description}/>
+                <ServiceDescription description={description}/>
             </Card.Body>
         </Card>
     );

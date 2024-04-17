@@ -1,9 +1,10 @@
-import {Button, Card, Form} from "react-bootstrap";
+import {Button, Card, Collapse, Form} from "react-bootstrap";
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 
 
 export default function EventCreator() {
+    const [open, setOpen] = useState(false);
     const [title, setTitle] = useState();
     const [type, setType] = useState();
     const [description, setDescription] = useState();
@@ -25,22 +26,27 @@ export default function EventCreator() {
     }, []);
 
     function saveEvent() {
-        fetch("https://project-e-service.onrender.com/api/v1/events/create", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${sessionStorage.getItem('token')}`
-            },
-            body: JSON.stringify({
-                title,
-                type,
-                description,
-                date,
-                headcount,
-                link
-            })
-        }).then(() => navigate("/events"))
-        console.log(newEvent)
+        if(title !== undefined && description!== undefined && date!== undefined && headcount !== 0 && link!== undefined){
+            fetch("https://project-e-service.onrender.com/api/v1/events/create", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${sessionStorage.getItem('token')}`
+                },
+                body: JSON.stringify({
+                    title,
+                    type,
+                    description,
+                    date,
+                    headcount,
+                    link
+                })
+            }).then(() => navigate("/events"))
+        }else{
+            setOpen(true)
+
+        }
+
     }
 
     return (
@@ -81,7 +87,11 @@ export default function EventCreator() {
                         <Form.Label>Calendar Link:</Form.Label>
                         <Form.Control required={true} onChange={(e) => setLink(e.target.value)} as="input" min={1}/>
                     </Form.Group>
-
+                    <Collapse in={open}>
+                        <div style={{color : "red"}} id="example-collapse-text">
+                            Fill out all fields!
+                        </div>
+                    </Collapse>
                     <Button variant="primary" onClick={(e) => {
                         e.preventDefault();
                         saveEvent();
