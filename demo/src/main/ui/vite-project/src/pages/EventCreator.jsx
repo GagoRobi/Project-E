@@ -26,7 +26,7 @@ export default function EventCreator() {
     }, []);
 
     function saveEvent() {
-        if(title !== undefined && description!== undefined && date!== undefined && headcount !== 0 && link!== undefined){
+        if(title !== undefined && type !== undefined && description!== undefined && date!== undefined && headcount !== 0 && link!== undefined){
             fetch("https://project-e-service.onrender.com/api/v1/events/create", {
                 method: "POST",
                 headers: {
@@ -56,19 +56,19 @@ export default function EventCreator() {
                 <Form>
                     <Form.Group className="mb-3" controlId="formTitle">
                         <Form.Label>Title</Form.Label>
-                        <Form.Control required={true} as="input" placeholder="Title" onChange={(e) => {
+                        <Form.Control as="input" placeholder="Title" onChange={(e) => {
                             setTitle(e.target.value)
                         }}/>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formDescription">
                         <Form.Label>Description</Form.Label>
-                        <Form.Control required={true} as="textarea" rows={3} placeholder="Description" onChange={(e) => {
+                        <Form.Control  as="textarea" rows={3} placeholder="Description" onChange={(e) => {
                             setDescription(e.target.value)
                         }}/>
                     </Form.Group>
                     <Form.Label>Type:</Form.Label>
-                    <Form.Select required={true} aria-label="Default select example" onChange={(e) => {
+                    <Form.Select aria-label="Default select example" onChange={(e) => {
                         setType({"id": e.target.value, "name": e.target.selectedOptions[0].innerText})
                     }}>
                         <option selected={true} disabled={true}>Open to select type</option>
@@ -76,16 +76,16 @@ export default function EventCreator() {
                     </Form.Select>
                     <Form.Group className="mb-3" controlId="formDate">
                         <Form.Label>Date:</Form.Label>
-                        <Form.Control required={true} onChange={(e) => setDate(e.target.value)} as="input" type={"date"}/>
+                        <Form.Control onChange={(e) => setDate(e.target.value)} as="input" type={"date"}/>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formCount">
                         <Form.Label>Head Count:</Form.Label>
-                        <Form.Control required={true} onChange={(e) => setHeadcount(e.target.value)} as="input" min={1}
+                        <Form.Control onChange={(e) => setHeadcount(e.target.value)} as="input" min={1}
                                       type={"number"}/>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formCount">
                         <Form.Label>Calendar Link:</Form.Label>
-                        <Form.Control required={true} onChange={(e) => setLink(e.target.value)} as="input" min={1}/>
+                        <Form.Control onChange={(e) => setLink(e.target.value)} as="input" min={1}/>
                     </Form.Group>
                     <Collapse in={open}>
                         <div style={{color : "red"}} id="example-collapse-text">
